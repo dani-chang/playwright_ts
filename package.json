@@ -1,0 +1,22 @@
+{
+  "name": "playwright_ts",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test:dev": "cross-env ENV=dev npx playwright test tests/example.spec.ts",
+    "test:qa": "cross-env ENV=qa npx playwright test tests/example.spec.ts",
+    "test:prd": "cross-env ENV=prd npx playwright test tests/example.spec.ts"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@playwright/test": "^1.52.0",
+    "@types/node": "^22.14.1",
+    "cross-env": "^7.0.3"
+  },
+  "dependencies": {
+    "dotenv": "^16.5.0"
+  }
+}
