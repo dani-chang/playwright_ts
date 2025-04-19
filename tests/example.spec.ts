@@ -1,25 +1,28 @@
 import { test, expect } from '@playwright/test';
-import {BASE_URL} from './setup';
+import * as Constants from './Constants';
+import { HomePage } from './pages/HomePage';
+import { beforeEach } from 'node:test';
+import { BASE_URL } from './setup';
 
 
-// require('dotenv').config();
-// console.log(process.env.ENV_QA);
+test.beforeEach(async ({page}) => {
 
+  const homePage = new HomePage(page);
+  await homePage.goToHomePage();
 
-
-
-console.log(BASE_URL);
-
-test('has title', async ({ page }) => {
-  await expect(2).toBe(2);
 });
 
-// test('get started link', async ({ page }) => {
-//   await page.goto('https://playwright.dev/');
+test(`Title is \'${Constants.SITE_TITLE}\'`, async ({ page }) => {
 
-//   // Click the get started link.
-//   await page.getByRole('link', { name: 'Get started' }).click();
+  await expect(page).toHaveTitle(Constants.SITE_TITLE);
 
-//   // Expects page to have a heading with the name of Installation.
-//   await expect(page.getByRole('heading', { name: 'Installation' })).toBeVisible();
-// });
+
+});
+
+test('Se visualiza Header.', async ({ page }) => {
+  const homePage = new HomePage(page); // TODO: esto es muy trucho
+  await expect(homePage.locator_header).toBeVisible();
+
+
+});
+
