@@ -8,6 +8,3 @@ playwright_ts/
 
 # node
 .env
-
-# others
-testcases.txt

@@ -47,4 +47,28 @@ test('Navbar - The items are the expected ones.', async ({ navbarPage }) => {
   await expect(navbarPage.locator_navbar_item_api_testing).toBeVisible();
   await expect(navbarPage.locator_navbar_item_video_tutorials).toBeVisible();
   await expect(navbarPage.locator_navbar_item_contact).toBeVisible();
+
+});
+
+test('Testcase 1', async ({navbarPage, signUpPage}) => {
+
+  await navbarPage.goToSignUp();
+  await signUpPage.locator_signup_email.fill(constants.EMAIL);
+  await signUpPage.locator_signup_name.fill(constants.NAME);
+  await signUpPage.locator_btn_signup.click();
+
+  await expect(signUpPage.locator_signup2_enter_info_title).toBeVisible();
+  await expect(signUpPage.locator_signup2_mr_mrs_title).toBeVisible();
+  await expect(signUpPage.locator_signup2_name).toBeVisible();
+  await expect(signUpPage.locator_signup2_email).toBeVisible();
+
+  const value_name = await signUpPage.locator_signup2_name.inputValue();
+  const value_email = await signUpPage.locator_signup2_email.inputValue();
+  
+  await expect(value_name).toBe(constants.NAME);
+  await expect(value_email).toBe(constants.EMAIL);
+
+  await expect(signUpPage.locator_signup2_pass).toBeVisible();
+  // await expect(signUpPage.locator_signup2_date_birth).toBeVisible(); // TODO: locator missing
+
 });

@@ -50,4 +50,8 @@ export class NavbarPage{
         await this.locator_navbar_item_cart.click();
     }
 
+    async goToSignUp(){
+        await this.locator_navbar_item_signup.click();
+    }
+
 }
