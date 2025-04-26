@@ -8,6 +8,6 @@ Seems comprehensible when thinking of simple examples, but a bit harder to wrap 
 #### 4/25/2025 - FIRST EXP USING FIXTURES
 Pretty cool.
 I didn't have to duplicate code by instantiating whatever page class I needed to use in every single test().
-Also using getByRole('listitem').filter({hasText: 'Home'}) to find text from a <li> is pretty handy.
+Also using `getByRole('listitem').filter({hasText: 'Home'})` to find text from a <li> is pretty handy.
 
 Decided to use a separate .md for journals instead of a README.
