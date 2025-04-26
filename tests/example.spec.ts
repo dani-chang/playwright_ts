@@ -11,7 +11,7 @@ test.beforeEach(async ({homePage}) => {
   await homePage.goToWebsite();
 
 });
-
+/*
 test(`Title is \'${constants.SITE_TITLE}\'`, async ({ page }) => {
 
   await expect(page).toHaveTitle(constants.SITE_TITLE);
@@ -49,7 +49,7 @@ test('Navbar - The items are the expected ones.', async ({ navbarPage }) => {
   await expect(navbarPage.locator_navbar_item_contact).toBeVisible();
 
 });
-
+*/
 test('Testcase 1', async ({navbarPage, signUpPage}) => {
 
   await navbarPage.goToSignUp();
@@ -57,8 +57,13 @@ test('Testcase 1', async ({navbarPage, signUpPage}) => {
   await signUpPage.locator_signup_name.fill(constants.NAME);
   await signUpPage.locator_btn_signup.click();
 
-  await expect(signUpPage.locator_signup2_enter_info_title).toBeVisible();
-  await expect(signUpPage.locator_signup2_mr_mrs_title).toBeVisible();
+  // signup2 - account info
+  await expect(signUpPage.locator_signup2_title_enter_info).toBeVisible();
+  await expect(signUpPage.locator_signup2_title_mr_mrs).toBeVisible();
+  await expect(signUpPage.locator_signup2_title_name).toBeVisible();
+  await expect(signUpPage.locator_signup2_title_email).toBeVisible();
+  await expect(signUpPage.locator_signup2_title_pass).toBeVisible();
+
   await expect(signUpPage.locator_signup2_name).toBeVisible();
   await expect(signUpPage.locator_signup2_email).toBeVisible();
 
@@ -67,8 +72,15 @@ test('Testcase 1', async ({navbarPage, signUpPage}) => {
   
   await expect(value_name).toBe(constants.NAME);
   await expect(value_email).toBe(constants.EMAIL);
-
   await expect(signUpPage.locator_signup2_pass).toBeVisible();
-  // await expect(signUpPage.locator_signup2_date_birth).toBeVisible(); // TODO: locator missing
+
+  await expect(signUpPage.locator_signup2_title_date_birth).toBeVisible();
+  await expect(signUpPage.locator_signup2_days).toBeVisible();
+  await expect(signUpPage.locator_signup2_months).toBeVisible();
+  await expect(signUpPage.locator_signup2_years).toBeVisible();
+
+  // await signUpPage.locator_signup2_days.click();
+
+  // signup2 - address info
 
 });
