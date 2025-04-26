@@ -1,27 +1,25 @@
 import { type Locator, type Page} from '@playwright/test';
 import { BASE_URL } from '../setup';
 
-const HEADER = "id=header";
-const SLIDER = "id=slider";
-
 
 export class HomePage{
 
+    HEADER = "id=header";
+    SLIDER = "id=slider";
+
     page: Page;
-    // locator_site_title: Promise<string>;
     locator_header: Locator;
     locator_slider: Locator;
-  static locator_header: any;
 
     constructor(page: Page){
 
         this.page = page;
-        this.locator_header = page.locator(HEADER);
-        this.locator_slider = page.locator(SLIDER);
+        this.locator_header = page.locator(this.HEADER);
+        this.locator_slider = page.locator(this.SLIDER);
 
     }
 
-    async goToHomePage(){
+    async goToWebsite(){
 
         if(!BASE_URL) throw new Error(`BASE_URL is not defined.`);
 
