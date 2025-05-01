@@ -3,7 +3,12 @@ _This file will be used to register thoughts I found worth logging while tinkeri
 
 
 ---
-### 4/30/2025
+### May 01 2025 - First exp with ui command
+The `--ui` feature was useful for debugging tests.<br>
+And also, for finding and creating more accurate locators.
+
+---
+### Apr 30 2025
 Apparently I can inject multiple pages/fixtures in the same `test()` and do things like:
 ```
 test('Verify email address.', async ({homePage, signUpPage, navbarPage}) => {
@@ -13,7 +18,7 @@ test('Verify email address.', async ({homePage, signUpPage, navbarPage}) => {
 ```
 
 ---
-### 4/26/2025 - Test 1, first exp setting up custom test attributes & struggles
+### Apr 26 2025 - Test 1, first exp setting up custom test attributes & struggles
 Started writing Testcase 1 (forgot to remove the txt file from the gitignore, added now).<br>
 Added custom testIdAttribute in `playwright.config`. <br>
 A different approach in finding locators. <br>
@@ -46,7 +51,7 @@ await expect(value).toBe(EXPECTED_STRING);
 ```
 
 ---
-### 4/25/2025 - First exp using fixtures
+### Apr 25 2025 - First exp using fixtures
 Pretty cool. <br>
 I didn't have to duplicate code by instantiating whatever page class I needed to use in every single test(). <br>
 Also using `getByRole('listitem').filter({hasText: 'Home'})` to find text from a `<li>` is pretty handy. <br><br>
@@ -54,7 +59,7 @@ Also using `getByRole('listitem').filter({hasText: 'Home'})` to find text from a
 Decided to use a separate .md for journals instead of a README.
 
 ---
-### 4/20/2025 - Intro to new concepts
+### Apr 20 2025 - Intro to new concepts
 My introduction to the concepts of `Types` and `Fixtures` and how to implement them. <br>
 Seems comprehensible with simple examples, but because of my lack of exp using Typescript, it was harder to wrap my head around them when trying to integrate them with Playwright. <br>
 
