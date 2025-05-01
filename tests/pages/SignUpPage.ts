@@ -2,8 +2,11 @@ import { Locator, Page } from "@playwright/test";
 
 export class SignUpPage {
 
+    uri_account_created: String = 'account_created'
+
     page: Page;
     
+    // Sign Up 1
     locator_login_title: Locator;
     locator_input_login_mail: Locator;
     locator_input_login_pass:Locator;
@@ -14,7 +17,7 @@ export class SignUpPage {
     locator_signup_email: Locator;
     locator_btn_signup: Locator;
 
-    // signUp 2 - account info
+    // Sign Up 2 - account info
     locator_signup2_title_enter_info: Locator;
     locator_signup2_title_mr_mrs: Locator;
     locator_signup2_title_name: Locator;
@@ -33,7 +36,7 @@ export class SignUpPage {
     locator_signup2_check_newsletter: Locator;
     locator_signup2_check_offers: Locator;
 
-    // signUp 2 - address info
+    // Sign Up 2 - address info
     locator_signup2_title_first_name: Locator;
     locator_signup2_title_last_name: Locator;
     locator_signup2_title_company: Locator;
@@ -55,6 +58,13 @@ export class SignUpPage {
     locator_signup2_city: Locator;
     locator_signup2_zipcode: Locator;
     locator_signup2_mobile_nr: Locator;
+
+    locator_btn_create_account: Locator;
+
+    // Sign Up 3 - Account Created
+    locator_header_account_created: Locator;
+    locator_p1_account_created: Locator;
+    locator_p2_account_created: Locator;
 
 
     constructor(page: Page){
@@ -81,8 +91,6 @@ export class SignUpPage {
 
         this.locator_signup2_mr = page.getByRole('radio', {name: 'Mr.'});
         this.locator_signup2_mrs = page.getByRole('radio', {name: 'Mrs.'});
-        // this.locator_signup2_mr = page.locator('id=uniform-id_gender1');
-        // this.locator_signup2_mrs = page.locator('id=uniform-id_gender2');
         this.locator_signup2_name = page.getByTestId('name');
         this.locator_signup2_email = page.getByTestId('email');
         this.locator_signup2_pass = page.getByTestId('password');
@@ -105,8 +113,12 @@ export class SignUpPage {
         this.locator_signup2_zipcode = page.getByTestId('zipcode');
         this.locator_signup2_mobile_nr = page.getByTestId('mobile_number');
     
-    
-    
+        this.locator_btn_create_account = page.getByRole('button', {name: 'Create Account'});
+
+        // Sign Up 3
+        this.locator_header_account_created = page.getByTestId('account-created');
+        this.locator_p1_account_created = page.getByText('Congratulations!');
+        this.locator_p2_account_created = page.getByText('You can now take advantage!');
     }
 
 }
