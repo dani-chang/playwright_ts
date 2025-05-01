@@ -22,6 +22,8 @@ export class SignUpPage {
     locator_signup2_title_pass: Locator;
     locator_signup2_title_date_birth: Locator;
 
+    locator_signup2_mr: Locator;
+    locator_signup2_mrs: Locator;
     locator_signup2_name: Locator;
     locator_signup2_email: Locator;
     locator_signup2_pass: Locator;
@@ -77,6 +79,10 @@ export class SignUpPage {
         this.locator_signup2_title_pass = page.getByText('Password *', {exact: true});
         this.locator_signup2_title_date_birth = page.getByText('Date of Birth');
 
+        this.locator_signup2_mr = page.getByRole('radio', {name: 'Mr.'});
+        this.locator_signup2_mrs = page.getByRole('radio', {name: 'Mrs.'});
+        // this.locator_signup2_mr = page.locator('id=uniform-id_gender1');
+        // this.locator_signup2_mrs = page.locator('id=uniform-id_gender2');
         this.locator_signup2_name = page.getByTestId('name');
         this.locator_signup2_email = page.getByTestId('email');
         this.locator_signup2_pass = page.getByTestId('password');

@@ -1,6 +1,17 @@
 ## Journal
 _This file will be used to register thoughts I found worth logging while tinkering with Playwright/TS._ <br>
 
+
+---
+### 4/30/2025
+Apparently I can inject multiple pages/fixtures in the same `test()` and do things like:
+```
+test('Verify email address.', async ({homePage, signUpPage, navbarPage}) => {
+    // my test code
+});
+
+```
+
 ---
 ### 4/26/2025 - Test 1, first exp setting up custom test attributes & struggles
 Started writing Testcase 1 (forgot to remove the txt file from the gitignore, added now).<br>
