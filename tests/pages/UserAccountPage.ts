@@ -1,8 +1,6 @@
 import { Locator, Page } from "@playwright/test";
 
-export class SignUpPage {
-
-    uri_account_created: String = 'account_created'
+export class UserAccountPage {
 
     page: Page;
     
@@ -62,9 +60,15 @@ export class SignUpPage {
     locator_btn_create_account: Locator;
 
     // Sign Up 3 - Account Created
-    locator_header_account_created: Locator;
-    locator_p1_account_created: Locator;
-    locator_p2_account_created: Locator;
+    locator_signup3_header_account_created: Locator;
+    locator_signup3_p1_account_created: Locator;
+    locator_signup3_p2_account_created: Locator;
+    locator_btn_continue: Locator;
+
+    // Delete Account
+    locator_delete_header_account_deleted: Locator;
+    locator_delete_p1_account_deleted: Locator;
+    locator_delete_p2_account_deleted: Locator;
 
 
     constructor(page: Page){
@@ -116,9 +120,15 @@ export class SignUpPage {
         this.locator_btn_create_account = page.getByRole('button', {name: 'Create Account'});
 
         // Sign Up 3
-        this.locator_header_account_created = page.getByTestId('account-created');
-        this.locator_p1_account_created = page.getByText('Congratulations!');
-        this.locator_p2_account_created = page.getByText('You can now take advantage!');
+        this.locator_signup3_header_account_created = page.getByTestId('account-created');
+        this.locator_signup3_p1_account_created = page.getByText('Congratulations!');
+        this.locator_signup3_p2_account_created = page.getByText('You can now take advantage');
+        this.locator_btn_continue = page.getByTestId('continue-button');
+
+        // Delete
+        this.locator_delete_header_account_deleted = page.getByText('Account Deleted!');
+        this.locator_delete_p1_account_deleted = page.getByText('Your account has been');
+        this.locator_delete_p2_account_deleted = page.getByText('You can create new account to');
     }
 
 }

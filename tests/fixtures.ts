@@ -2,14 +2,14 @@
 import { test as baseTest, Page } from '@playwright/test';
 import { HomePage } from './pages/HomePage';
 import { NavbarPage } from './pages/NavbarPage';
-import { SignUpPage } from './pages/SignUpPage';
+import { UserAccountPage } from './pages/UserAccountPage';
 
 
 type TestFixtures = {
 
     homePage: HomePage;
     navbarPage: NavbarPage;
-    signUpPage: SignUpPage;
+    userAccountPage: UserAccountPage;
 
 
 }
@@ -28,10 +28,10 @@ export const test = baseTest.extend<TestFixtures>({
 
     },
 
-    signUpPage: async function({page}, use){
+    userAccountPage: async function({page}, use){
 
-        const signUpPage = new SignUpPage(page);
-        await use(signUpPage);
+        const userAccountPage = new UserAccountPage(page);
+        await use(userAccountPage);
     }
 
 })

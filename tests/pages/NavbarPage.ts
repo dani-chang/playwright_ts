@@ -20,6 +20,9 @@ export class NavbarPage{
     locator_navbar_item_contact: Locator;
     locator_navbar_item: Locator;
 
+    locator_navbar_item_logout: Locator;
+    locator_navbar_item_delete_account: Locator;
+    locator_navbar_item_logged_in_as: Locator;
 
     constructor(page: Page){
 
@@ -34,7 +37,10 @@ export class NavbarPage{
         this.locator_navbar_item_api_testing = page.getByRole('listitem').filter({hasText: 'API Testing'});
         this.locator_navbar_item_video_tutorials = page.getByRole('listitem').filter({hasText: 'Video Tutorials'});
         this.locator_navbar_item_contact = page.getByRole('listitem').filter({hasText: 'Contact us'});
-        // this.locator_navbar_item = page.locator(this.LOCATOR_NAVBAR_ITEM);
+        
+        this.locator_navbar_item_logout = page.getByRole('listitem').filter({hasText: 'Logout'});
+        this.locator_navbar_item_delete_account = page.getByRole('listitem').filter({hasText: 'Delete Account'});
+        this.locator_navbar_item_logged_in_as = page.getByRole('listitem').filter({hasText: 'Logged in as'});
 
     }
 
