@@ -52,7 +52,7 @@ test('Navbar - Should display the expected navbar items.', async ({ navbarPage }
 
 });
 
-test('Testcase 1', async ({homePage, navbarPage, userAccountPage}) => {
+test('Testcase 1', async function ({homePage, navbarPage, userAccountPage}) {
 
   // await expect(homePage.getSiteTitle()).toBe(constants.SITE_TITLE);
   // Step 3
@@ -165,5 +165,14 @@ test('Testcase 1', async ({homePage, navbarPage, userAccountPage}) => {
 
   // Step 18
   await userAccountPage.locator_btn_continue.click();
+
+});
+
+test('Testcase 2', async function({homePage, navbarPage, userAccountPage}){
+
+  await homePage.homeElementsAreVisible();
+  await navbarPage.navbarElementsAreVisible({loggedin: false});
+
+  // await navbarPage.goToSignUp();
 
 });

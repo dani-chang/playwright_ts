@@ -1,4 +1,4 @@
-import { type Locator, type Page} from '@playwright/test';
+import { expect, type Locator, type Page} from '@playwright/test';
 import { BASE_URL } from '../setup';
 
 
@@ -29,5 +29,14 @@ export class HomePage{
     async getSiteTitle(): Promise<string>{
         return await this.page.title();
     }
+
+    async homeElementsAreVisible(){
+
+        await expect(this.locator_header).toBeVisible({visible: false});
+        await expect(this.locator_slider).toBeVisible();
+
+    }
+
+
 
 }

@@ -1,4 +1,4 @@
-import { Locator, Page } from "@playwright/test";
+import { expect, Locator, Page } from "@playwright/test";
 import * as homePage from './HomePage';
 
 
@@ -58,6 +58,30 @@ export class NavbarPage{
 
     async goToSignUp(){
         await this.locator_navbar_item_signup.click();
+    }
+
+    async navbarElementsAreVisible(options: {loggedin?: false}){
+
+        await expect(this.locator_navbar_item_home).toBeVisible();
+        await expect(this.locator_navbar_item_products).toBeVisible();
+        await expect(this.locator_navbar_item_cart).toBeVisible();
+        await expect(this.locator_navbar_item_signup).toBeVisible();
+        await expect(this.locator_navbar_item_testcases).toBeVisible();
+        await expect(this.locator_navbar_item_api_testing).toBeVisible();
+        await expect(this.locator_navbar_item_video_tutorials).toBeVisible();
+        await expect(this.locator_navbar_item_contact).toBeVisible();
+
+        if(options.loggedin)
+        {
+            await expect(this.locator_navbar_item_logged_in_as).toBeVisible();
+            await expect(this.locator_navbar_item_logout).toBeVisible();
+        }
+        else
+        {
+            await expect(this.locator_navbar_item_logged_in_as).toBeVisible({visible: false});
+            await expect(this.locator_navbar_item_logout).toBeVisible({visible: false});
+        }  
+
     }
 
 }
