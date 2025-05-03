@@ -2,7 +2,7 @@
 _This file will be used to register thoughts I found worth logging while tinkering with Playwright/TS._ <br>
 
 ---
-### May 03 2025 - First exp using objets as func parameters
+### May 03 2025 - Abstracting steps and first exp using objets as func parameters
 Started Testcase 2. <br>
 Unsurprisingly, like in other test frameworks, I can also `test.skip()` in Playwright.<br>
 Reading some of the following testcases they have here: https://automationexercise.com/test_cases, I noticed a lot of repeated steps so I decided to abstract away some `expect()` into their respective pages. Such as, `homePageElementsAreVisible()` and `navbarElementsAreVisible()`. <br>
