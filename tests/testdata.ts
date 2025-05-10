@@ -4,8 +4,30 @@ const random = utils.randomString();
 
 export const SITE_TITLE = 'Automation Exercise';
 
-export const SIGN_IN_USER_DATA = {
-    
+export type SignUpUser = {
+    email: string,
+    full_name: string,
+    pass: string,
+    first_name: string,
+    last_name: string,
+    date_of_birth: {
+        day: string,
+        month: string,
+        year: string
+    },
+    company: string,
+    country: string,
+    state: string,
+    city: string,
+    address_1: string,
+    address_2: string,
+    zipcode: string,
+    mobile_nr: string
+}
+
+
+export const SIGNUP_USER_DEFAULT: SignUpUser = {
+
     email: `test@test${random}.com`,
     full_name: `John Doe${random}`,
     pass: 'test123',

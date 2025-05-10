@@ -1,4 +1,5 @@
 import { Locator, Page } from "@playwright/test";
+import { SignUpUser } from "../testdata";
 
 export class UserAccountPage {
 
@@ -132,6 +133,9 @@ export class UserAccountPage {
     }
 
 
+    async sign_up(user_data: SignUpUser){
+        
+    }
 
 
 
