@@ -4,7 +4,7 @@ import { HomePage } from './pages/HomePage';
 import { beforeEach } from 'node:test';
 import { BASE_URL } from './setup';
 import {test} from './fixtures';
-import { sign } from 'crypto';
+import * as data from './testdata';
 
 
 test.beforeEach(async ({homePage}) => {
@@ -70,8 +70,8 @@ test('Testcase 1', async function ({homePage, navbarPage, userAccountPage}) {
   await expect(userAccountPage.locator_signup_title).toBeVisible();
 
   // Step 6
-  await userAccountPage.locator_signup_email.fill(Consts.EMAIL);
-  await userAccountPage.locator_signup_name.fill(Consts.FULL_NAME);
+  await userAccountPage.locator_signup_email.fill(data.SIGN_IN_USER_DATA.email);
+  await userAccountPage.locator_signup_name.fill(data.SIGN_IN_USER_DATA.full_name);
 
   // Step 7
   await userAccountPage.locator_btn_signup.click();
@@ -109,13 +109,13 @@ test('Testcase 1', async function ({homePage, navbarPage, userAccountPage}) {
   const value_name = await userAccountPage.locator_signup2_name.inputValue();
   const value_email = await userAccountPage.locator_signup2_email.inputValue();
   
-  await expect(value_name).toBe(Consts.FULL_NAME);
-  await expect(value_email).toBe(Consts.EMAIL);
+  await expect(value_name).toBe(data.SIGN_IN_USER_DATA.full_name);
+  await expect(value_email).toBe(data.SIGN_IN_USER_DATA.email);
 
-  await userAccountPage.locator_signup2_pass.fill(Consts.PASS);
-  await userAccountPage.locator_signup2_days.selectOption(Consts.DATE_OF_BIRTH.day);
-  await userAccountPage.locator_signup2_months.selectOption(Consts.DATE_OF_BIRTH.month);
-  await userAccountPage.locator_signup2_years.selectOption(Consts.DATE_OF_BIRTH.year);
+  await userAccountPage.locator_signup2_pass.fill(data.SIGN_IN_USER_DATA.pass);
+  await userAccountPage.locator_signup2_days.selectOption(data.SIGN_IN_USER_DATA.date_of_birth.day);
+  await userAccountPage.locator_signup2_months.selectOption(data.SIGN_IN_USER_DATA.date_of_birth.month);
+  await userAccountPage.locator_signup2_years.selectOption(data.SIGN_IN_USER_DATA.date_of_birth.year);
 
   // Step 10
   await userAccountPage.locator_signup2_check_newsletter.setChecked(true);
@@ -125,16 +125,16 @@ test('Testcase 1', async function ({homePage, navbarPage, userAccountPage}) {
 
   // Sign Up 2 - Address info form
   // Step 12
-  await userAccountPage.locator_signup2_first_name.fill(Consts.FIRST_NAME);
-  await userAccountPage.locator_signup2_last_name.fill(Consts.LAST_NAME);
-  await userAccountPage.locator_signup2_company.fill(Consts.COMPANY);
-  await userAccountPage.locator_signup2_address.fill(Consts.ADDRESS_1);
-  await userAccountPage.locator_signup2_address2.fill(Consts.ADDRESS_2);
-  await userAccountPage.locator_signup2_country.selectOption(Consts.COUNTRY);
-  await userAccountPage.locator_signup2_state.fill(Consts.STATE);
-  await userAccountPage.locator_signup2_city.fill(Consts.CITY);
-  await userAccountPage.locator_signup2_zipcode.fill(Consts.ZIPCODE);
-  await userAccountPage.locator_signup2_mobile_nr.fill(Consts.MOBILE_NR);
+  await userAccountPage.locator_signup2_first_name.fill(data.SIGN_IN_USER_DATA.first_name);
+  await userAccountPage.locator_signup2_last_name.fill(data.SIGN_IN_USER_DATA.last_name);
+  await userAccountPage.locator_signup2_company.fill(data.SIGN_IN_USER_DATA.company);
+  await userAccountPage.locator_signup2_address.fill(data.SIGN_IN_USER_DATA.address_1);
+  await userAccountPage.locator_signup2_address2.fill(data.SIGN_IN_USER_DATA.address_2);
+  await userAccountPage.locator_signup2_country.selectOption(data.SIGN_IN_USER_DATA.country);
+  await userAccountPage.locator_signup2_state.fill(data.SIGN_IN_USER_DATA.state);
+  await userAccountPage.locator_signup2_city.fill(data.SIGN_IN_USER_DATA.city);
+  await userAccountPage.locator_signup2_zipcode.fill(data.SIGN_IN_USER_DATA.zipcode);
+  await userAccountPage.locator_signup2_mobile_nr.fill(data.SIGN_IN_USER_DATA.mobile_nr);
 
   // Step 13
   await userAccountPage.locator_btn_create_account.click();
@@ -155,7 +155,7 @@ test('Testcase 1', async function ({homePage, navbarPage, userAccountPage}) {
   await expect(navbarPage.locator_navbar_item_logged_in_as).toBeVisible();
   await expect(navbarPage.locator_navbar_item_delete_account).toBeVisible();
 
-  await expect(navbarPage.locator_navbar_item_logged_in_as).toContainText(Consts.FULL_NAME);
+  await expect(navbarPage.locator_navbar_item_logged_in_as).toContainText(data.SIGN_IN_USER_DATA.full_name);
 
   // Step 17
   await navbarPage.locator_navbar_item_delete_account.click();

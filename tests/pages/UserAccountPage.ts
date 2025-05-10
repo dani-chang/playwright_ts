@@ -131,4 +131,11 @@ export class UserAccountPage {
         this.locator_delete_p2_account_deleted = page.getByText('You can create new account to');
     }
 
+
+
+
+
+
+
+
 }
