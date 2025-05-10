@@ -173,6 +173,7 @@ test('Testcase 2', async function({homePage, navbarPage, userAccountPage}){
   await homePage.homeElementsAreVisible();
   await navbarPage.navbarElementsAreVisible({loggedin: false});
 
-  // await navbarPage.goToSignUp();
+  await navbarPage.goToSignUp();
+  await userAccountPage.sign_up(data.SIGNUP_USER_DEFAULT);
 
 });
