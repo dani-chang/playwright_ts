@@ -54,116 +54,28 @@ test('Navbar - Should display the expected navbar items.', async ({ navbarPage }
 
 test('Testcase 1', async function ({homePage, navbarPage, userAccountPage}) {
 
-  // await expect(homePage.getSiteTitle()).toBe(constants.SITE_TITLE);
-  // Step 3
   await expect(homePage.locator_header).toBeVisible()
   await expect(homePage.locator_slider).toBeVisible()
 
   await expect(navbarPage.locator_navbar).toBeVisible();
   await expect(navbarPage.locator_navbar_item_signup).toBeVisible();
   
-  // Step 4
   await navbarPage.go_to_signup();
-  await expect(userAccountPage.page.url()).toBe(`${BASE_URL}/${Consts.URL_LOGIN_EXPECTED}`);
+  await userAccountPage.sign_up(data.SIGNUP_USER_DEFAULT);
 
-  // Step 5
-  await expect(userAccountPage.locator_signup_title).toBeVisible();
-
-  // Step 6
-  await userAccountPage.locator_signup_email.fill(data.SIGNUP_USER_DEFAULT.email);
-  await userAccountPage.locator_signup_name.fill(data.SIGNUP_USER_DEFAULT.full_name);
-
-  // Step 7
-  await userAccountPage.locator_btn_signup.click();
-
-  // Sign Up 2 view
-  // Step 8
-  await expect(userAccountPage.page.url()).toBe(`${BASE_URL}/${Consts.URL_SIGNUP_EXPECTED}`);
-  await expect(userAccountPage.locator_signup2_title_enter_info).toBeVisible();
-  await expect(userAccountPage.locator_signup2_title_mr_mrs).toBeVisible();
-  await expect(userAccountPage.locator_signup2_title_name).toBeVisible();
-  await expect(userAccountPage.locator_signup2_title_email).toBeVisible();
-  await expect(userAccountPage.locator_signup2_title_pass).toBeVisible();
-
-  await expect(userAccountPage.locator_signup2_mr).toBeVisible();
-  await expect(userAccountPage.locator_signup2_mrs).toBeVisible();
-
-  await expect(userAccountPage.locator_signup2_name).toBeVisible();
-  await expect(userAccountPage.locator_signup2_email).toBeVisible();
-  await expect(userAccountPage.locator_signup2_pass).toBeVisible();
-
-  await expect(userAccountPage.locator_signup2_title_date_birth).toBeVisible();
-  await expect(userAccountPage.locator_signup2_days).toBeVisible();
-  await expect(userAccountPage.locator_signup2_months).toBeVisible();
-  await expect(userAccountPage.locator_signup2_years).toBeVisible();
-
-  await expect(userAccountPage.locator_signup2_check_newsletter).toBeChecked({checked: false});
-  await expect(userAccountPage.locator_signup2_check_offers).toBeChecked({checked: false});
-
-  await expect(userAccountPage.locator_btn_create_account).toBeVisible();
-
-  // SignUp 2 - Account info form
-  // Step 9
-  await userAccountPage.locator_signup2_mr.click();
-
-  const value_name = await userAccountPage.locator_signup2_name.inputValue();
-  const value_email = await userAccountPage.locator_signup2_email.inputValue();
-  
-  await expect(value_name).toBe(data.SIGNUP_USER_DEFAULT.full_name);
-  await expect(value_email).toBe(data.SIGNUP_USER_DEFAULT.email);
-
-  await userAccountPage.locator_signup2_pass.fill(data.SIGNUP_USER_DEFAULT.pass);
-  await userAccountPage.locator_signup2_days.selectOption(data.SIGNUP_USER_DEFAULT.date_of_birth.day);
-  await userAccountPage.locator_signup2_months.selectOption(data.SIGNUP_USER_DEFAULT.date_of_birth.month);
-  await userAccountPage.locator_signup2_years.selectOption(data.SIGNUP_USER_DEFAULT.date_of_birth.year);
-
-  // Step 10
-  await userAccountPage.locator_signup2_check_newsletter.setChecked(true);
-
-  // Step 11
-  await userAccountPage.locator_signup2_check_offers.click();//.setChecked(true);
-
-  // Sign Up 2 - Address info form
-  // Step 12
-  await userAccountPage.locator_signup2_first_name.fill(data.SIGNUP_USER_DEFAULT.first_name);
-  await userAccountPage.locator_signup2_last_name.fill(data.SIGNUP_USER_DEFAULT.last_name);
-  await userAccountPage.locator_signup2_company.fill(data.SIGNUP_USER_DEFAULT.company);
-  await userAccountPage.locator_signup2_address.fill(data.SIGNUP_USER_DEFAULT.address_1);
-  await userAccountPage.locator_signup2_address2.fill(data.SIGNUP_USER_DEFAULT.address_2);
-  await userAccountPage.locator_signup2_country.selectOption(data.SIGNUP_USER_DEFAULT.country);
-  await userAccountPage.locator_signup2_state.fill(data.SIGNUP_USER_DEFAULT.state);
-  await userAccountPage.locator_signup2_city.fill(data.SIGNUP_USER_DEFAULT.city);
-  await userAccountPage.locator_signup2_zipcode.fill(data.SIGNUP_USER_DEFAULT.zipcode);
-  await userAccountPage.locator_signup2_mobile_nr.fill(data.SIGNUP_USER_DEFAULT.mobile_nr);
-
-  // Step 13
-  await userAccountPage.locator_btn_create_account.click();
-  
-  // Sign Up 3 - Accounted Created
-  // Step 14
-  await expect(userAccountPage.page.url()).toBe(`${BASE_URL}/${Consts.URL_ACCOUNT_CREATED_EXPECTED}`);
-  await expect(userAccountPage.locator_signup3_header_account_created).toBeVisible();
-  await expect(userAccountPage.locator_signup3_p1_account_created).toBeVisible();
-  await expect(userAccountPage.locator_signup3_p2_account_created).toBeVisible();
-
-  // Step 15
-  await userAccountPage.locator_btn_continue.click();
-
-  // Step 16
   await expect(navbarPage.page.url()).toBe(`https://automationexercise.com/`);
+  
   await expect(navbarPage.locator_navbar_item_logout).toBeVisible();
   await expect(navbarPage.locator_navbar_item_logged_in_as).toBeVisible();
   await expect(navbarPage.locator_navbar_item_delete_account).toBeVisible();
 
   await expect(navbarPage.locator_navbar_item_logged_in_as).toContainText(data.SIGNUP_USER_DEFAULT.full_name);
 
-  // Step 17
   await navbarPage.locator_navbar_item_delete_account.click();
   await expect(userAccountPage.locator_delete_header_account_deleted).toBeVisible();
   await expect(userAccountPage.locator_delete_p1_account_deleted).toBeVisible();
   await expect(userAccountPage.locator_delete_p2_account_deleted).toBeVisible();
 
-  // Step 18
   await userAccountPage.locator_btn_continue.click();
 
 });
