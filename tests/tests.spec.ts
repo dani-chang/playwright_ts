@@ -9,7 +9,7 @@ import * as data from './testdata';
 
 test.beforeEach(async ({homePage}) => {
 
-  await homePage.goToWebsite();
+  await homePage.go_to_website();
 
 });
 
@@ -63,7 +63,7 @@ test('Testcase 1', async function ({homePage, navbarPage, userAccountPage}) {
   await expect(navbarPage.locator_navbar_item_signup).toBeVisible();
   
   // Step 4
-  await navbarPage.goToSignUp();
+  await navbarPage.go_to_signup();
   await expect(userAccountPage.page.url()).toBe(`${BASE_URL}/${Consts.URL_LOGIN_EXPECTED}`);
 
   // Step 5
@@ -170,10 +170,10 @@ test('Testcase 1', async function ({homePage, navbarPage, userAccountPage}) {
 
 test('Testcase 2', async function({homePage, navbarPage, userAccountPage}){
 
-  await homePage.homeElementsAreVisible();
-  await navbarPage.navbarElementsAreVisible({loggedin: false});
+  await homePage.home_elements_are_visible();
+  await navbarPage.navbar_elements_are_visible({loggedin: false});
 
-  await navbarPage.goToSignUp();
+  await navbarPage.go_to_signup();
   await userAccountPage.sign_up(data.SIGNUP_USER_DEFAULT);
 
 });

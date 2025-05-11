@@ -19,18 +19,18 @@ export class HomePage{
 
     }
 
-    async goToWebsite(){
+    async go_to_website(){
 
         if(!BASE_URL) throw new Error(`BASE_URL is not defined.`);
 
         await this.page.goto(BASE_URL);
     }
 
-    async getSiteTitle(): Promise<string>{
+    async get_site_title(): Promise<string>{
         return await this.page.title();
     }
 
-    async homeElementsAreVisible(){
+    async home_elements_are_visible(){
 
         await expect(this.locator_header).toBeVisible({visible: false});
         await expect(this.locator_slider).toBeVisible();

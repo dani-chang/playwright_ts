@@ -44,23 +44,23 @@ export class NavbarPage{
 
     }
 
-    async goToHome(){
+    async go_to_home(){
         await this.locator_navbar_item_home.click();
     }
 
-    async goToProducts(){
+    async go_to_products(){
         await this.locator_navbar_item_products.click();
     }
 
-    async goToCart(){
+    async go_to_cart(){
         await this.locator_navbar_item_cart.click();
     }
 
-    async goToSignUp(){
+    async go_to_signup(){
         await this.locator_navbar_item_signup.click();
     }
 
-    async navbarElementsAreVisible(options: {loggedin?: false}){
+    async navbar_elements_are_visible(options: {loggedin?: false}){
 
         await expect(this.locator_navbar_item_home).toBeVisible();
         await expect(this.locator_navbar_item_products).toBeVisible();
