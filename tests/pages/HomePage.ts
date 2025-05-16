@@ -32,7 +32,7 @@ export class HomePage{
 
     async home_elements_are_visible(){
 
-        await expect(this.locator_header).toBeVisible({visible: false});
+        await expect(this.locator_header).toBeVisible();
         await expect(this.locator_slider).toBeVisible();
 
     }

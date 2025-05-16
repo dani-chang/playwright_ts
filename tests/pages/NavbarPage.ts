@@ -60,28 +60,28 @@ export class NavbarPage{
         await this.locator_navbar_item_signup.click();
     }
 
-    async navbar_elements_are_visible(options: {loggedin?: false}){
+    async navbar_elements_are_visible(options: | {loggedin: true, logged_in_as: string} | {loggedin: false, logged_in_as?: undefined}){
 
         await expect(this.locator_navbar_item_home).toBeVisible();
         await expect(this.locator_navbar_item_products).toBeVisible();
         await expect(this.locator_navbar_item_cart).toBeVisible();
-        await expect(this.locator_navbar_item_signup).toBeVisible();
         await expect(this.locator_navbar_item_testcases).toBeVisible();
         await expect(this.locator_navbar_item_api_testing).toBeVisible();
         await expect(this.locator_navbar_item_video_tutorials).toBeVisible();
         await expect(this.locator_navbar_item_contact).toBeVisible();
 
-        if(options.loggedin)
+        if(options.loggedin && typeof options.logged_in_as === 'string')
         {
             await expect(this.locator_navbar_item_logged_in_as).toBeVisible();
             await expect(this.locator_navbar_item_logout).toBeVisible();
+            await expect(this.locator_navbar_item_logged_in_as).toContainText(options.logged_in_as);
         }
         else
-        {
+        {   
+            await expect(this.locator_navbar_item_signup).toBeVisible();
             await expect(this.locator_navbar_item_logged_in_as).toBeVisible({visible: false});
             await expect(this.locator_navbar_item_logout).toBeVisible({visible: false});
         }  
 
     }
-
 }

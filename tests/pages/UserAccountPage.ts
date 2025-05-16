@@ -225,6 +225,19 @@ export class UserAccountPage {
         await expect(this.page.url()).toBe(`https://automationexercise.com/`);
     }
 
+    async log_in(email: string, password: string){
+
+        // await expect(this.locator_login_title).toBeVisible();
+        await expect(this.locator_input_login_mail).toBeVisible();
+        await expect(this.locator_input_login_pass).toBeVisible();
+        await expect(this.locator_btn_login).toBeVisible();
+        
+        await this.locator_input_login_mail.fill(email);
+        await this.locator_input_login_pass.fill(password);
+        await this.locator_btn_login.click();
+
+    }
+
 
 
 

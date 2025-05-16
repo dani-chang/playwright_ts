@@ -48,6 +48,12 @@ export const SIGNUP_USER_DEFAULT: SignUpUser = {
     mobile_nr: `1234556`
 }
 
+export const LOGIN_USER_DEFAULT = {
+    email: "test_daniel@123.com",
+    pass: "123123123",
+    logged_in_as: "Daniel Testing123"
+}
+
 
 
 

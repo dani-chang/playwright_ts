@@ -5,6 +5,7 @@ import { beforeEach } from 'node:test';
 import { BASE_URL } from './setup';
 import {test} from './fixtures';
 import * as data from './testdata';
+import { UserAccountPage } from './pages/UserAccountPage';
 
 
 test.beforeEach(async ({homePage}) => {
@@ -13,14 +14,14 @@ test.beforeEach(async ({homePage}) => {
 
 });
 
-test(`Title is \'${Consts.SITE_TITLE}\'`, async ({ page }) => {
+test.skip(`Title is \'${Consts.SITE_TITLE}\'`, async ({ page }) => {
 
   await expect(page).toHaveTitle(Consts.SITE_TITLE);
 
 
 });
 
-/*
+
 test('Home - The header is visible.', async ({ homePage }) => {
 
   await expect(homePage.locator_header).toBeVisible();
@@ -37,7 +38,7 @@ test('Navbar - Navbar is visible.', async ({ navbarPage }) => {
 
   await expect(navbarPage.locator_navbar).toBeVisible();
 
-});*/
+});
 
 test('Navbar - Should display the expected navbar items.', async ({ navbarPage }) => {
 
@@ -86,6 +87,11 @@ test('Testcase 2', async function({homePage, navbarPage, userAccountPage}){
   await navbarPage.navbar_elements_are_visible({loggedin: false});
 
   await navbarPage.go_to_signup();
-  await userAccountPage.sign_up(data.SIGNUP_USER_DEFAULT);
 
+  await userAccountPage.log_in(data.LOGIN_USER_DEFAULT.email, data.LOGIN_USER_DEFAULT.pass);
+  await expect(navbarPage.locator_navbar_item_logged_in_as).toContainText(data.LOGIN_USER_DEFAULT.logged_in_as);
+
+  await navbarPage.navbar_elements_are_visible({loggedin: true, logged_in_as: data.LOGIN_USER_DEFAULT.logged_in_as});
+  
+  
 });

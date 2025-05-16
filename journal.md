@@ -1,6 +1,15 @@
 ## Journal
 _This file will be used to register thoughts I found worth logging while tinkering with Playwright/TS._ <br>
 
+
+---
+### May 16 2025 - --ui Playwright command and getting used to TS
+Decided to polish the `navbar_elements_are_visible()` function's `options`, with `?` params and "discriminated union".<br>
+These are quite new TS features for me (and probably pretty basic for others) so I have no idea if this was the best way to use them. We'll see.<br><br>
+The `--ui` Playwright command has been quite useful for debugging tests.<br><br>
+
+Defining and using `type SignUpUser` might have been completely unnecesary for this project. I suppose it makes sense when the project gets bigger and bigger.
+
 ---
 ### May 03 2025 - Abstracting steps and first exp using objets as func parameters
 Started Testcase 2. <br>
