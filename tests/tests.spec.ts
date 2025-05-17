@@ -77,7 +77,7 @@ test('Testcase 1 - Create account and delete.', async function ({homePage, navba
   await expect(userAccountPage.locator_delete_p1_account_deleted).toBeVisible();
   await expect(userAccountPage.locator_delete_p2_account_deleted).toBeVisible();
 
-  await userAccountPage.locator_btn_continue.click();
+  await userAccountPage.locator_signup3_btn_continue.click();
 
 });
 
@@ -127,3 +127,21 @@ test('Testcase 4 - Logout.', async function({homePage, navbarPage, userAccountPa
   await navbarPage.expect_navbar_elements_to_be_visible({loggedin: false});
   
 });
+
+test('Testcase 5 - Sign up with existing email.', async function({homePage, navbarPage, userAccountPage}){
+
+  await homePage.home_elements_are_visible();
+  await navbarPage.expect_navbar_elements_to_be_visible({loggedin: false});
+
+  await navbarPage.go_to_signup();
+
+  await expect(userAccountPage.locator_signup_email).toBeVisible();
+  await expect(userAccountPage.locator_signup_name).toBeVisible();
+
+  await userAccountPage.locator_signup_email.fill(data.LOGIN_USER_DEFAULT.email);
+  await userAccountPage.locator_signup_name.fill(data.LOGIN_USER_DEFAULT.logged_in_as);
+
+  await userAccountPage.locator_signup_btn.click();
+  await expect(userAccountPage.locator_signup_error_msg).toBeVisible();
+  
+})

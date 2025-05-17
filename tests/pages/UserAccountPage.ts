@@ -11,12 +11,12 @@ export class UserAccountPage {
     locator_login_title: Locator;
     locator_input_login_mail: Locator;
     locator_input_login_pass:Locator;
-    locator_btn_login: Locator;
+    locator_login_btn: Locator;
     
     locator_signup_title: Locator;
     locator_signup_name: Locator;
     locator_signup_email: Locator;
-    locator_btn_signup: Locator;
+    locator_signup_btn: Locator;
 
     // Sign Up 2 - account info
     locator_signup2_title_enter_info: Locator;
@@ -60,21 +60,22 @@ export class UserAccountPage {
     locator_signup2_zipcode: Locator;
     locator_signup2_mobile_nr: Locator;
 
-    locator_btn_create_account: Locator;
+    locator_signup2_btn_create_account: Locator;
 
     // Sign Up 3 - Account Created
     locator_signup3_header_account_created: Locator;
     locator_signup3_p1_account_created: Locator;
     locator_signup3_p2_account_created: Locator;
-    locator_btn_continue: Locator;
+    locator_signup3_btn_continue: Locator;
 
     // Delete Account
     locator_delete_header_account_deleted: Locator;
     locator_delete_p1_account_deleted: Locator;
     locator_delete_p2_account_deleted: Locator;
 
-    // Log IN - Invalid Msg
+    // Invalid Msgs
     locator_login_error_msg: Locator;
+    locator_signup_error_msg: Locator;
 
 
     constructor(page: Page){
@@ -85,13 +86,14 @@ export class UserAccountPage {
 
         this.locator_signup_name = page.getByTestId('signup-name');
         this.locator_signup_email = page.getByTestId('signup-email');
-        this.locator_btn_signup = page.getByRole('button', {name: 'Signup'});
+        this.locator_signup_btn = page.getByRole('button', {name: 'Signup'});
 
         this.locator_input_login_mail = page.getByTestId('login-email');
         this.locator_input_login_pass = page.getByTestId('login-password');
-        this.locator_btn_login = page.getByTestId('login-button');
+        this.locator_login_btn = page.getByTestId('login-button');
 
         this.locator_login_error_msg = page.getByText('Your email or password is incorrect!');
+        this.locator_signup_error_msg = page.getByText('Email Address already exist!');
 
         // signUp 2 - account info
         this.locator_signup2_title_enter_info = page.getByText('Enter Account Information');
@@ -125,13 +127,13 @@ export class UserAccountPage {
         this.locator_signup2_zipcode = page.getByTestId('zipcode');
         this.locator_signup2_mobile_nr = page.getByTestId('mobile_number');
     
-        this.locator_btn_create_account = page.getByRole('button', {name: 'Create Account'});
+        this.locator_signup2_btn_create_account = page.getByRole('button', {name: 'Create Account'});
 
         // Sign Up 3
         this.locator_signup3_header_account_created = page.getByTestId('account-created');
         this.locator_signup3_p1_account_created = page.getByText('Congratulations!');
         this.locator_signup3_p2_account_created = page.getByText('You can now take advantage');
-        this.locator_btn_continue = page.getByTestId('continue-button');
+        this.locator_signup3_btn_continue = page.getByTestId('continue-button');
 
         // Delete
         this.locator_delete_header_account_deleted = page.getByText('Account Deleted!');
@@ -151,7 +153,7 @@ export class UserAccountPage {
         await this.locator_signup_name.fill(user_data.full_name);
 
         // Step 7
-        await this.locator_btn_signup.click();
+        await this.locator_signup_btn.click();
 
         // Sign Up 2 view
         // Step 8
@@ -177,7 +179,7 @@ export class UserAccountPage {
         await expect(this.locator_signup2_check_newsletter).toBeChecked({checked: false});
         await expect(this.locator_signup2_check_offers).toBeChecked({checked: false});
 
-        await expect(this.locator_btn_create_account).toBeVisible();
+        await expect(this.locator_signup2_btn_create_account).toBeVisible();
 
         // SignUp 2 - Account info form
         // Step 9
@@ -214,7 +216,7 @@ export class UserAccountPage {
         await this.locator_signup2_mobile_nr.fill(user_data.mobile_nr);
 
         // Step 13
-        await this.locator_btn_create_account.click();
+        await this.locator_signup2_btn_create_account.click();
         
         // Sign Up 3 - Accounted Created
         // Step 14
@@ -224,7 +226,7 @@ export class UserAccountPage {
         await expect(this.locator_signup3_p2_account_created).toBeVisible();
 
         // Step 15
-        await this.locator_btn_continue.click();
+        await this.locator_signup3_btn_continue.click();
 
         // Step 16
         // await expect(this.page.url()).toBe(`https://automationexercise.com/`);
@@ -235,11 +237,11 @@ export class UserAccountPage {
         // await expect(this.locator_login_title).toBeVisible();
         await expect(this.locator_input_login_mail).toBeVisible();
         await expect(this.locator_input_login_pass).toBeVisible();
-        await expect(this.locator_btn_login).toBeVisible();
+        await expect(this.locator_login_btn).toBeVisible();
         
         await this.locator_input_login_mail.fill(email);
         await this.locator_input_login_pass.fill(password);
-        await this.locator_btn_login.click();
+        await this.locator_login_btn.click();
 
     }
 
