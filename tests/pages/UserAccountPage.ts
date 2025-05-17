@@ -7,7 +7,7 @@ export class UserAccountPage {
 
     page: Page;
     
-    // Sign Up 1
+    // Sign Up / Log In 1
     locator_login_title: Locator;
     locator_input_login_mail: Locator;
     locator_input_login_pass:Locator;
@@ -73,6 +73,9 @@ export class UserAccountPage {
     locator_delete_p1_account_deleted: Locator;
     locator_delete_p2_account_deleted: Locator;
 
+    // Log IN - Invalid Msg
+    locator_login_error_msg: Locator;
+
 
     constructor(page: Page){
 
@@ -87,6 +90,8 @@ export class UserAccountPage {
         this.locator_input_login_mail = page.getByTestId('login-email');
         this.locator_input_login_pass = page.getByTestId('login-password');
         this.locator_btn_login = page.getByTestId('login-button');
+
+        this.locator_login_error_msg = page.getByText('Your email or password is incorrect!');
 
         // signUp 2 - account info
         this.locator_signup2_title_enter_info = page.getByText('Enter Account Information');
@@ -222,7 +227,7 @@ export class UserAccountPage {
         await this.locator_btn_continue.click();
 
         // Step 16
-        await expect(this.page.url()).toBe(`https://automationexercise.com/`);
+        // await expect(this.page.url()).toBe(`https://automationexercise.com/`);
     }
 
     async log_in(email: string, password: string){

@@ -53,7 +53,7 @@ test('Navbar - Should display the expected navbar items.', async ({ navbarPage }
 
 });
 
-test('Testcase 1', async function ({homePage, navbarPage, userAccountPage}) {
+test('Testcase 1 - Create account and delete.', async function ({homePage, navbarPage, userAccountPage}) {
 
   await expect(homePage.locator_header).toBeVisible()
   await expect(homePage.locator_slider).toBeVisible()
@@ -63,7 +63,7 @@ test('Testcase 1', async function ({homePage, navbarPage, userAccountPage}) {
   
   await navbarPage.go_to_signup();
   await userAccountPage.sign_up(data.SIGNUP_USER_DEFAULT);
-
+  
   await expect(navbarPage.page.url()).toBe(`https://automationexercise.com/`);
   
   await expect(navbarPage.locator_navbar_item_logout).toBeVisible();
@@ -81,17 +81,49 @@ test('Testcase 1', async function ({homePage, navbarPage, userAccountPage}) {
 
 });
 
-test('Testcase 2', async function({homePage, navbarPage, userAccountPage}){
+test('Testcase 2 - Login with valid email.', async function({homePage, navbarPage, userAccountPage}){
 
   await homePage.home_elements_are_visible();
-  await navbarPage.navbar_elements_are_visible({loggedin: false});
+  await navbarPage.expect_navbar_elements_to_be_visible({loggedin: false});
 
   await navbarPage.go_to_signup();
 
   await userAccountPage.log_in(data.LOGIN_USER_DEFAULT.email, data.LOGIN_USER_DEFAULT.pass);
   await expect(navbarPage.locator_navbar_item_logged_in_as).toContainText(data.LOGIN_USER_DEFAULT.logged_in_as);
 
-  await navbarPage.navbar_elements_are_visible({loggedin: true, logged_in_as: data.LOGIN_USER_DEFAULT.logged_in_as});
+  await navbarPage.expect_navbar_elements_to_be_visible({loggedin: true, logged_in_as: data.LOGIN_USER_DEFAULT.logged_in_as});
   
+  
+});
+
+test('Testcase 3 - Login with invalid email.', async function({homePage, navbarPage, userAccountPage}){
+
+  await homePage.home_elements_are_visible();
+  await navbarPage.expect_navbar_elements_to_be_visible({loggedin: false});
+
+  await navbarPage.go_to_signup();
+
+  await userAccountPage.log_in('invalidTestMail_123@gmail.com', data.LOGIN_USER_DEFAULT.pass);
+
+  await expect(userAccountPage.locator_login_error_msg).toBeVisible();
+
+  
+});
+
+test('Testcase 4 - Logout.', async function({homePage, navbarPage, userAccountPage}){
+
+  await homePage.home_elements_are_visible();
+  await navbarPage.expect_navbar_elements_to_be_visible({loggedin: false});
+
+  await navbarPage.go_to_signup();
+
+  await userAccountPage.log_in(data.LOGIN_USER_DEFAULT.email, data.LOGIN_USER_DEFAULT.pass);
+
+  await navbarPage.expect_navbar_elements_to_be_visible({loggedin: true, logged_in_as: data.LOGIN_USER_DEFAULT.logged_in_as});
+
+  await expect(navbarPage.locator_navbar_item_logout).toBeVisible();
+  await navbarPage.locator_navbar_item_logout.click();
+
+  await navbarPage.expect_navbar_elements_to_be_visible({loggedin: false});
   
 });
