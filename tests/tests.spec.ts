@@ -4,7 +4,7 @@ import { HomePage } from './pages/HomePage';
 import { beforeEach } from 'node:test';
 import { BASE_URL } from './setup';
 import {test} from './fixtures';
-import * as data from './testdata';
+import * as data from './data/testdata';
 import { UserAccountPage } from './pages/UserAccountPage';
 
 
@@ -14,7 +14,7 @@ test.beforeEach(async ({homePage}) => {
 
 });
 
-test.skip(`Title is \'${Consts.SITE_TITLE}\'`, async ({ page }) => {
+test(`Title is \'${Consts.SITE_TITLE}\'`, async ({ page }) => {
 
   await expect(page).toHaveTitle(Consts.SITE_TITLE);
 
@@ -164,6 +164,10 @@ test('Testcase 6 - Contact us.', async function({homePage, navbarPage, contactUs
   await contactUsPage.locator_contact_input_name.fill(data.LOGIN_USER_DEFAULT.logged_in_as);
   await contactUsPage.locator_contact_input_subject.fill('Test Subject Contact Us');
   await contactUsPage.locator_contact_input_message.fill('Free message contact us!');
+
+  await contactUsPage.locator_contact_upload.setInputFiles('./tests/data/testfile.txt');
+  await contactUsPage.locator_contact_btn_submit.click(); // TODO: ad blocks click?
+  await expect(contactUsPage.locator_contact_msg_success).toBeVisible();
 
 
 

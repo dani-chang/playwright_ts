@@ -15,6 +15,7 @@ export class ContactUsPage {
 
     locator_contact_upload: Locator;
     locator_contact_btn_submit: Locator;
+    locator_contact_msg_success: Locator;
 
     constructor(page: Page){
 
@@ -32,6 +33,8 @@ export class ContactUsPage {
         this.locator_contact_upload = page.locator('input[name="upload_file"]');
 
         this.locator_contact_btn_submit = page.getByTestId('submit-button');
+
+        this.locator_contact_msg_success = page.getByText('Success! Your details have been submitted successfully.');
 
     }
 

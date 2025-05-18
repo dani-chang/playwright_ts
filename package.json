@@ -7,7 +7,7 @@
     "test:loc": "cross-env ENV=prd npx playwright test tests/tests.spec.ts --project firefox --reporter=list --ui",
     "test:dev": "cross-env ENV=dev npx playwright test tests/tests.spec.ts",
     "test:qa": "cross-env ENV=qa npx playwright test tests/tests.spec.ts",
-    "test:prd": "cross-env ENV=prd npx playwright test tests/tests.spec.ts"
+    "test:prd": "cross-env ENV=prd npx playwright test tests/tests.spec.ts --project firefox --headed"
   },
   "keywords": [],
   "author": "",
