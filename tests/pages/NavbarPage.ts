@@ -60,6 +60,10 @@ export class NavbarPage{
         await this.locator_navbar_item_signup.click();
     }
 
+    async go_to_contact_us(){
+        await this.locator_navbar_item_contact.click();
+    }
+
     async expect_navbar_elements_to_be_visible(options: | {loggedin: true, logged_in_as: string} | {loggedin: false, logged_in_as?: undefined}){
 
         await expect(this.locator_navbar_item_home).toBeVisible();

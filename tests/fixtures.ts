@@ -3,6 +3,7 @@ import { test as baseTest, Page } from '@playwright/test';
 import { HomePage } from './pages/HomePage';
 import { NavbarPage } from './pages/NavbarPage';
 import { UserAccountPage } from './pages/UserAccountPage';
+import { ContactUsPage } from './pages/ContactUsPage';
 
 
 type TestFixtures = {
@@ -10,6 +11,7 @@ type TestFixtures = {
     homePage: HomePage;
     navbarPage: NavbarPage;
     userAccountPage: UserAccountPage;
+    contactUsPage : ContactUsPage;
 
 
 }
@@ -32,6 +34,13 @@ export const test = baseTest.extend<TestFixtures>({
 
         const userAccountPage = new UserAccountPage(page);
         await use(userAccountPage);
+    },
+
+    contactUsPage: async function({page}, use){
+
+        const contactUsPage = new ContactUsPage(page);
+        await use(contactUsPage);
+
     }
 
 })

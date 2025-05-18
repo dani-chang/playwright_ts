@@ -144,4 +144,27 @@ test('Testcase 5 - Sign up with existing email.', async function({homePage, navb
   await userAccountPage.locator_signup_btn.click();
   await expect(userAccountPage.locator_signup_error_msg).toBeVisible();
   
-})
+});
+
+test('Testcase 6 - Contact us.', async function({homePage, navbarPage, contactUsPage}){
+
+  await homePage.home_elements_are_visible();
+  await navbarPage.expect_navbar_elements_to_be_visible({loggedin: false});
+
+  await navbarPage.go_to_contact_us();
+
+  await expect(contactUsPage.locator_title_get_in_touch).toBeVisible();
+
+  await expect(contactUsPage.locator_contact_input_email).toBeVisible();
+  await expect(contactUsPage.locator_contact_input_name).toBeVisible();
+  await expect(contactUsPage.locator_contact_input_subject).toBeVisible();
+  await expect(contactUsPage.locator_contact_input_message).toBeVisible();
+
+  await contactUsPage.locator_contact_input_email.fill(data.LOGIN_USER_DEFAULT.email);
+  await contactUsPage.locator_contact_input_name.fill(data.LOGIN_USER_DEFAULT.logged_in_as);
+  await contactUsPage.locator_contact_input_subject.fill('Test Subject Contact Us');
+  await contactUsPage.locator_contact_input_message.fill('Free message contact us!');
+
+
+
+});

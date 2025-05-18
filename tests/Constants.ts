@@ -7,6 +7,7 @@ export const P2_ACCOUNT_CREATED = 'You can now take advantage of member privileg
 export const URL_LOGIN_EXPECTED = 'login';
 export const URL_SIGNUP_EXPECTED = 'signup'
 export const URL_ACCOUNT_CREATED_EXPECTED = 'account_created';
+export const URL_CONTACT_US_EXPECTED = 'contact_us';
 
 
 
