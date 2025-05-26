@@ -16,8 +16,10 @@ export class ContactUsPage {
     locator_contact_upload: Locator;
     locator_contact_btn_submit: Locator;
     locator_contact_msg_success: Locator;
+    locator_contact_btn_home: Locator;
 
     constructor(page: Page){
+        this.page = page;
 
         this.locator_title_get_in_touch = page.getByText('Get In Touch');
         this.locator_title_contact_us = page.getByText('Contact Us');
@@ -29,13 +31,17 @@ export class ContactUsPage {
         this.locator_contact_input_subject = page.getByTestId('subject');
         this.locator_contact_input_message = page.getByTestId('message');
 
-
         this.locator_contact_upload = page.locator('input[name="upload_file"]');
 
         this.locator_contact_btn_submit = page.getByTestId('submit-button');
 
-        this.locator_contact_msg_success = page.getByText('Success! Your details have been submitted successfully.');
+        this.locator_contact_msg_success = page.locator('#contact-page').getByText('Success! Your details have been submitted successfully.');
+        this.locator_contact_btn_home = page.locator('//*[@id="form-section"]/a');
 
+    }
+
+    async accept_dialog_prompt(){
+        this.page.on('dialog', dialog => dialog.accept());
     }
 
 

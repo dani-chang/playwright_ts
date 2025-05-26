@@ -8,6 +8,7 @@ import * as data from './data/testdata';
 import { UserAccountPage } from './pages/UserAccountPage';
 
 
+
 test.beforeEach(async ({homePage}) => {
 
   await homePage.go_to_website();
@@ -159,6 +160,8 @@ test('Testcase 6 - Contact us.', async function({homePage, navbarPage, contactUs
   await expect(contactUsPage.locator_contact_input_name).toBeVisible();
   await expect(contactUsPage.locator_contact_input_subject).toBeVisible();
   await expect(contactUsPage.locator_contact_input_message).toBeVisible();
+  await expect(contactUsPage.locator_contact_btn_submit).toBeVisible();
+  
 
   await contactUsPage.locator_contact_input_email.fill(data.LOGIN_USER_DEFAULT.email);
   await contactUsPage.locator_contact_input_name.fill(data.LOGIN_USER_DEFAULT.logged_in_as);
@@ -166,9 +169,14 @@ test('Testcase 6 - Contact us.', async function({homePage, navbarPage, contactUs
   await contactUsPage.locator_contact_input_message.fill('Free message contact us!');
 
   await contactUsPage.locator_contact_upload.setInputFiles('./tests/data/testfile.txt');
-  await contactUsPage.locator_contact_btn_submit.click(); // TODO: ad blocks click?
+
+  await contactUsPage.accept_dialog_prompt();
+  await contactUsPage.locator_contact_btn_submit.click();
+
   await expect(contactUsPage.locator_contact_msg_success).toBeVisible();
+  await expect(contactUsPage.locator_contact_btn_home).toBeVisible();
 
-
-
+  await contactUsPage.locator_contact_btn_home.click();
+  await expect(homePage.page.url()).toBe(`${BASE_URL}/`);
+  
 });

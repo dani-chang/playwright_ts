@@ -1,6 +1,13 @@
 ## Journal
 _This file will be used to register thoughts I found worth logging while tinkering with Playwright/TS._ <br>
 
+---
+### May 25 2025 - Handling brouwser's dialog prompt
+First real headache. Dealing with the browser's prompt in the Contact Us Page.<br>
+At first I thought the test (Testcase 6) failed because of the upload feature, but apparently it was because of the dialog that prompts after submitting Contact Us form. <br>
+According to [their doc](https://playwright.dev/docs/dialogs), you have to "register a dialog handler before the action that triggers it.", which I find odd. <br>
+In any case, I was finally able to solve that issue to complete Testcase 6. <br>
+I added the step in the `ContactUsPage` in `accept_dialog_prompt()`. I will probably have to move it to a different page, but it will do for now.
 
 ---
 ### May 16 2025 - --ui Playwright command and getting used to TS
