@@ -46,7 +46,7 @@ test('Navbar - Should display the expected navbar items.', async ({ navbarPage }
   await expect(navbarPage.locator_navbar_item_home).toBeVisible();
   await expect(navbarPage.locator_navbar_item_products).toBeVisible();
   await expect(navbarPage.locator_navbar_item_cart).toBeVisible();
-  await expect(navbarPage.locator_navbar_item_signup).toBeVisible();
+  await expect(navbarPage.locator_navbar_item_signup_login).toBeVisible();
   await expect(navbarPage.locator_navbar_item_testcases).toBeVisible();
   await expect(navbarPage.locator_navbar_item_api_testing).toBeVisible();
   await expect(navbarPage.locator_navbar_item_video_tutorials).toBeVisible();
@@ -60,9 +60,9 @@ test('Testcase 1 - Create account and delete.', async function ({homePage, navba
   await expect(homePage.locator_slider).toBeVisible()
 
   await expect(navbarPage.locator_navbar).toBeVisible();
-  await expect(navbarPage.locator_navbar_item_signup).toBeVisible();
+  await expect(navbarPage.locator_navbar_item_signup_login).toBeVisible();
   
-  await navbarPage.go_to_signup();
+  await navbarPage.go_to_signup_login();
   await userAccountPage.sign_up(data.SIGNUP_USER_DEFAULT);
   
   await expect(navbarPage.page.url()).toBe(`https://automationexercise.com/`);
@@ -87,7 +87,7 @@ test('Testcase 2 - Login with valid email.', async function({homePage, navbarPag
   await homePage.home_elements_are_visible();
   await navbarPage.expect_navbar_elements_to_be_visible({loggedin: false});
 
-  await navbarPage.go_to_signup();
+  await navbarPage.go_to_signup_login();
 
   await userAccountPage.log_in(data.LOGIN_USER_DEFAULT.email, data.LOGIN_USER_DEFAULT.pass);
   await expect(navbarPage.locator_navbar_item_logged_in_as).toContainText(data.LOGIN_USER_DEFAULT.logged_in_as);
@@ -102,7 +102,7 @@ test('Testcase 3 - Login with invalid email.', async function({homePage, navbarP
   await homePage.home_elements_are_visible();
   await navbarPage.expect_navbar_elements_to_be_visible({loggedin: false});
 
-  await navbarPage.go_to_signup();
+  await navbarPage.go_to_signup_login();
 
   await userAccountPage.log_in('invalidTestMail_123@gmail.com', data.LOGIN_USER_DEFAULT.pass);
 
@@ -116,7 +116,7 @@ test('Testcase 4 - Logout.', async function({homePage, navbarPage, userAccountPa
   await homePage.home_elements_are_visible();
   await navbarPage.expect_navbar_elements_to_be_visible({loggedin: false});
 
-  await navbarPage.go_to_signup();
+  await navbarPage.go_to_signup_login();
 
   await userAccountPage.log_in(data.LOGIN_USER_DEFAULT.email, data.LOGIN_USER_DEFAULT.pass);
 
@@ -134,7 +134,7 @@ test('Testcase 5 - Sign up with existing email.', async function({homePage, navb
   await homePage.home_elements_are_visible();
   await navbarPage.expect_navbar_elements_to_be_visible({loggedin: false});
 
-  await navbarPage.go_to_signup();
+  await navbarPage.go_to_signup_login();
 
   await expect(userAccountPage.locator_signup_email).toBeVisible();
   await expect(userAccountPage.locator_signup_name).toBeVisible();
