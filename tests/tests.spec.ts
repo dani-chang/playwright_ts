@@ -54,7 +54,7 @@ test('Navbar - Should display the expected navbar items.', async ({ navbarPage }
 
 });
 
-test('Testcase 1 - Create account and delete.', async function ({homePage, navbarPage, userAccountPage}) {
+test('Test Case 1: Register User.', async function ({homePage, navbarPage, userAccountPage}) {
 
   await expect(homePage.locator_header).toBeVisible()
   await expect(homePage.locator_slider).toBeVisible()
@@ -82,7 +82,7 @@ test('Testcase 1 - Create account and delete.', async function ({homePage, navba
 
 });
 
-test('Testcase 2 - Login with valid email.', async function({homePage, navbarPage, userAccountPage}){
+test('Test Case 2: Login User with correct email and password.', async function({homePage, navbarPage, userAccountPage}){
 
   await homePage.home_elements_are_visible();
   await navbarPage.expect_navbar_elements_to_be_visible({loggedin: false});
@@ -97,7 +97,7 @@ test('Testcase 2 - Login with valid email.', async function({homePage, navbarPag
   
 });
 
-test('Testcase 3 - Login with invalid email.', async function({homePage, navbarPage, userAccountPage}){
+test('Test Case 3: Login User with incorrect email and password.', async function({homePage, navbarPage, userAccountPage}){
 
   await homePage.home_elements_are_visible();
   await navbarPage.expect_navbar_elements_to_be_visible({loggedin: false});
@@ -111,7 +111,7 @@ test('Testcase 3 - Login with invalid email.', async function({homePage, navbarP
   
 });
 
-test('Testcase 4 - Logout.', async function({homePage, navbarPage, userAccountPage}){
+test('Test Case 4: Logout User.', async function({homePage, navbarPage, userAccountPage}){
 
   await homePage.home_elements_are_visible();
   await navbarPage.expect_navbar_elements_to_be_visible({loggedin: false});
@@ -129,7 +129,7 @@ test('Testcase 4 - Logout.', async function({homePage, navbarPage, userAccountPa
   
 });
 
-test('Testcase 5 - Sign up with existing email.', async function({homePage, navbarPage, userAccountPage}){
+test('Test Case 5: Register User with existing email.', async function({homePage, navbarPage, userAccountPage}){
 
   await homePage.home_elements_are_visible();
   await navbarPage.expect_navbar_elements_to_be_visible({loggedin: false});
@@ -147,7 +147,7 @@ test('Testcase 5 - Sign up with existing email.', async function({homePage, navb
   
 });
 
-test('Testcase 6 - Contact us.', async function({homePage, navbarPage, contactUsPage}){
+test('Test Case 6: Contact Us Form.', async function({homePage, navbarPage, contactUsPage}){
 
   await homePage.home_elements_are_visible();
   await navbarPage.expect_navbar_elements_to_be_visible({loggedin: false});
@@ -181,7 +181,7 @@ test('Testcase 6 - Contact us.', async function({homePage, navbarPage, contactUs
   
 });
 
-test('Testcase 7 - Test Cases', async function({homePage, navbarPage, testCasesPage}){
+test('Test Case 7: Verify Test Cases Page.', async function({homePage, navbarPage, testCasesPage}){
 
   await homePage.home_elements_are_visible();
   await expect(navbarPage.locator_navbar_item_testcases).toBeVisible();
@@ -190,6 +190,16 @@ test('Testcase 7 - Test Cases', async function({homePage, navbarPage, testCasesP
   await expect(testCasesPage.locator_title).toBeVisible();
   await expect(testCasesPage.locator_description).toBeVisible();
 
+});
 
+test('Test Case 8: Verify All Products and product detail page.', async function({homePage, navbarPage, productsPage}){
+
+  await homePage.home_elements_are_visible();
+  await expect(navbarPage.locator_navbar_item_products).toBeVisible();
+  await navbarPage.go_to_products();
+
+  await expect(productsPage.locator_sale_image).toBeVisible();
+  await expect(productsPage.locator_title_all_products).toBeVisible();
 
 });
+
