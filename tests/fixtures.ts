@@ -4,6 +4,7 @@ import { HomePage } from './pages/HomePage';
 import { NavbarPage } from './pages/NavbarPage';
 import { UserAccountPage } from './pages/UserAccountPage';
 import { ContactUsPage } from './pages/ContactUsPage';
+import { TestCasesPage } from './pages/TestCasesPage';
 
 
 type TestFixtures = {
@@ -12,9 +13,11 @@ type TestFixtures = {
     navbarPage: NavbarPage;
     userAccountPage: UserAccountPage;
     contactUsPage : ContactUsPage;
+    testCasesPage: TestCasesPage;
 
 
 }
+
 
 export const test = baseTest.extend<TestFixtures>({
 
@@ -40,6 +43,13 @@ export const test = baseTest.extend<TestFixtures>({
 
         const contactUsPage = new ContactUsPage(page);
         await use(contactUsPage);
+
+    },
+
+    testCasesPage: async function({page}, use){
+
+        const testCasesPage = new TestCasesPage(page);
+        await use(testCasesPage);
 
     }
 

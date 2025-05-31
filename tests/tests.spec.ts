@@ -180,3 +180,16 @@ test('Testcase 6 - Contact us.', async function({homePage, navbarPage, contactUs
   await expect(homePage.page.url()).toBe(`${BASE_URL}/`);
   
 });
+
+test('Testcase 7 - Test Cases', async function({homePage, navbarPage, testCasesPage}){
+
+  await homePage.home_elements_are_visible();
+  await expect(navbarPage.locator_navbar_item_testcases).toBeVisible();
+  await navbarPage.go_to_test_cases();
+
+  await expect(testCasesPage.locator_title).toBeVisible();
+  await expect(testCasesPage.locator_description).toBeVisible();
+
+
+
+});

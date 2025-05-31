@@ -10,6 +10,7 @@ export const URL_PRODUCTS_EXPECTED = 'products';
 export const URL_ACCOUNT_CREATED_EXPECTED = 'account_created';
 export const URL_CONTACT_US_EXPECTED = 'contact_us';
 export const URL_CART_EXPECTED = 'view_cart';
+export const URL_TESTCASES_EXPECTED = 'test_cases';
 
 
 

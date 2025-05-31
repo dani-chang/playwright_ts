@@ -71,6 +71,11 @@ export class NavbarPage{
         await expect(this.page.url()).toBe(`${BASE_URL}/${Consts.URL_CONTACT_US_EXPECTED}`);
     }
 
+    async go_to_test_cases(){
+        await this.locator_navbar_item_testcases.click();
+        await expect(this.page.url()).toBe(`${BASE_URL}/${Consts.URL_TESTCASES_EXPECTED}`);
+    }
+
     async expect_navbar_elements_to_be_visible(options: | {loggedin: true, logged_in_as: string} | {loggedin: false, logged_in_as?: undefined}){
 
         await expect(this.locator_navbar_item_home).toBeVisible();
