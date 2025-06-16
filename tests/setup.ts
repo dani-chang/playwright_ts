@@ -4,6 +4,7 @@ import dotenv from 'dotenv';
 dotenv.config();
 
 let requested_env = process.env.ENV || 'dev';
+console.log(`El process.env.ENV: ${requested_env}`)
 
 let BASE_URL: string | undefined;
 

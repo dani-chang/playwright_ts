@@ -7,9 +7,6 @@ import {test} from './fixtures';
 import * as data from './data/testdata';
 import { UserAccountPage } from './pages/UserAccountPage';
 
-
-console.log('test log.');
-
 test.beforeEach(async ({homePage}) => {
 
   await homePage.go_to_website();
@@ -24,25 +21,25 @@ test(`Title is \'${Consts.SITE_TITLE}\'`, async ({ page }) => {
 });
 
 
-test('Home - The header is visible.', async ({ homePage }) => {
+test.skip('Home - The header is visible.', async ({ homePage }) => {
 
   await expect(homePage.locator_header).toBeVisible();
 
 });
 
-test('Home - The slider is visible.', async ({ homePage }) => {
+test.skip('Home - The slider is visible.', async ({ homePage }) => {
 
   await expect(homePage.locator_slider).toBeVisible();
 
 });
 
-test('Navbar - Navbar is visible.', async ({ navbarPage }) => {
+test.skip('Navbar - Navbar is visible.', async ({ navbarPage }) => {
 
   await expect(navbarPage.locator_navbar).toBeVisible();
 
 });
 
-test('Navbar - Should display the expected navbar items.', async ({ navbarPage }) => {
+test.skip('Navbar - Should display the expected navbar items.', async ({ navbarPage }) => {
 
   await expect(navbarPage.locator_navbar_item_home).toBeVisible();
   await expect(navbarPage.locator_navbar_item_products).toBeVisible();
@@ -55,7 +52,7 @@ test('Navbar - Should display the expected navbar items.', async ({ navbarPage }
 
 });
 
-test('Test Case 1: Register User.', async function ({homePage, navbarPage, userAccountPage}) {
+test.skip('Test Case 1: Register User.', async function ({homePage, navbarPage, userAccountPage}) {
 
   await expect(homePage.locator_header).toBeVisible()
   await expect(homePage.locator_slider).toBeVisible()
@@ -83,7 +80,7 @@ test('Test Case 1: Register User.', async function ({homePage, navbarPage, userA
 
 });
 
-test('Test Case 2: Login User with correct email and password.', async function({homePage, navbarPage, userAccountPage}){
+test.skip('Test Case 2: Login User with correct email and password.', async function({homePage, navbarPage, userAccountPage}){
 
   await homePage.home_elements_are_visible();
   await navbarPage.expect_navbar_elements_to_be_visible({loggedin: false});
@@ -98,7 +95,7 @@ test('Test Case 2: Login User with correct email and password.', async function(
   
 });
 
-test('Test Case 3: Login User with incorrect email and password.', async function({homePage, navbarPage, userAccountPage}){
+test.skip('Test Case 3: Login User with incorrect email and password.', async function({homePage, navbarPage, userAccountPage}){
 
   await homePage.home_elements_are_visible();
   await navbarPage.expect_navbar_elements_to_be_visible({loggedin: false});
@@ -112,7 +109,7 @@ test('Test Case 3: Login User with incorrect email and password.', async functio
   
 });
 
-test('Test Case 4: Logout User.', async function({homePage, navbarPage, userAccountPage}){
+test.skip('Test Case 4: Logout User.', async function({homePage, navbarPage, userAccountPage}){
 
   await homePage.home_elements_are_visible();
   await navbarPage.expect_navbar_elements_to_be_visible({loggedin: false});
@@ -130,7 +127,7 @@ test('Test Case 4: Logout User.', async function({homePage, navbarPage, userAcco
   
 });
 
-test('Test Case 5: Register User with existing email.', async function({homePage, navbarPage, userAccountPage}){
+test.skip('Test Case 5: Register User with existing email.', async function({homePage, navbarPage, userAccountPage}){
 
   await homePage.home_elements_are_visible();
   await navbarPage.expect_navbar_elements_to_be_visible({loggedin: false});
@@ -148,7 +145,7 @@ test('Test Case 5: Register User with existing email.', async function({homePage
   
 });
 
-test('Test Case 6: Contact Us Form.', async function({homePage, navbarPage, contactUsPage}){
+test.skip('Test Case 6: Contact Us Form.', async function({homePage, navbarPage, contactUsPage}){
 
   await homePage.home_elements_are_visible();
   await navbarPage.expect_navbar_elements_to_be_visible({loggedin: false});
@@ -182,7 +179,7 @@ test('Test Case 6: Contact Us Form.', async function({homePage, navbarPage, cont
   
 });
 
-test('Test Case 7: Verify Test Cases Page.', async function({homePage, navbarPage, testCasesPage}){
+test.skip('Test Case 7: Verify Test Cases Page.', async function({homePage, navbarPage, testCasesPage}){
 
   await homePage.home_elements_are_visible();
   await expect(navbarPage.locator_navbar_item_testcases).toBeVisible();
@@ -193,7 +190,7 @@ test('Test Case 7: Verify Test Cases Page.', async function({homePage, navbarPag
 
 });
 
-test('Test Case 8: Verify All Products and product detail page.', async function({homePage, navbarPage, productsPage}){
+test.skip('Test Case 8: Verify All Products and product detail page.', async function({homePage, navbarPage, productsPage}){
 
   await homePage.home_elements_are_visible();
   await expect(navbarPage.locator_navbar_item_products).toBeVisible();

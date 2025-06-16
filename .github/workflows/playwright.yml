@@ -6,6 +6,7 @@ jobs:
     timeout-minutes: 60
     runs-on: ubuntu-latest
     env:
+      ENV: ${{ secrets.ENV }}
       ENV_DEV: ${{secrets.ENV_DEV}}
       ENV_QA: ${{secrets.ENV_QA}}
       ENV_PRD: ${{secrets.ENV_PRD}}
