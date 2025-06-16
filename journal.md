@@ -5,7 +5,9 @@ _This file will be used to register thoughts I found worth logging while tinkeri
 Since Playwright already generates a `yml` for Github Actions, I decided to give it a try. <br>
 Took me a while but was able to create a workflow that will be run manually (for now). <br>
 My main issue was the way i had set up envs (I had them just for local runs). Fixed it by using Github secret envs. <br>
-No idea if this is the "correct" approach, but it will work for now.
+No idea if this is the "correct" approach, but it will work for now. <br>
+Added `FORCE_COLOR` for logs of test results for more readability. <br>
+Added retention of html-report file when tests are run in the `Upload Playwright HTML report` step of the `yml` file. <br>
 
 ---
 ### May 25 2025 - Handling brouwser's dialog prompt
