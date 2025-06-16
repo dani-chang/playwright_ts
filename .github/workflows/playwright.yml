@@ -6,7 +6,9 @@ jobs:
     timeout-minutes: 60
     runs-on: ubuntu-latest
     env:
-      ENV: ${{secrets.MY_ENV}}
+      ENV_DEV: ${{secrets.ENV_DEV}}
+      ENV_QA: ${{secrets.ENV_QA}}
+      ENV_PRD: ${{secrets.ENV_PRD}}
     steps:
     - uses: actions/checkout@v4
     - uses: actions/setup-node@v4
