@@ -1,6 +1,12 @@
 ## Journal
 _This file will be used to register thoughts I found worth logging while tinkering with Playwright/TS._ <br>
 
+### June 16 2025 - First exp setting up Github actions + playwright
+Since Playwright already generates a `yml` for Github Actions, I decided to give it a try. <br>
+Took me a while but was able to create a workflow that will be run manually (for now). <br>
+My main issue was the way i had set up envs (I had them just for local runs). Fixed it by using Github secret envs. <br>
+No idea if this is the "correct" approach, but it will work for now.
+
 ---
 ### May 25 2025 - Handling brouwser's dialog prompt
 First real headache. Dealing with the browser's prompt in the Contact Us Page.<br>
