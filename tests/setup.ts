@@ -5,8 +5,6 @@ dotenv.config();
 
 let requested_env = process.env.ENV || 'dev';
 
-console.log(`My requested_env: ${requested_env}`);
-
 let BASE_URL: string | undefined;
 
 if(requested_env === 'dev'){
@@ -23,6 +21,8 @@ else if(requested_env === 'prd'){
     BASE_URL = process.env.ENV_PRD;
 
 }
+
+console.log(`The BASE_URL is: ${BASE_URL}`);
 
 if (BASE_URL === undefined) throw new Error(`BASE URL is not defined for requested environment: ${requested_env}`);
 
