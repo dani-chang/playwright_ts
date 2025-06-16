@@ -203,3 +203,11 @@ test('Test Case 8: Verify All Products and product detail page.', async function
 
 });
 
+test.skip('Test Case 9: Search Product.', async function({homePage, navbarPage, productsPage}){
+
+  await homePage.home_elements_are_visible();
+  await expect(navbarPage.locator_navbar_item_products).toBeVisible();
+  await navbarPage.go_to_products();
+
+});
+
