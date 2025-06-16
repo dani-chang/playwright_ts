@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "cross-env ENV=prd npx playwright test tests/tests.spec.ts --project firefox --reporter=list",
+    "test": "npx playwright test tests/tests.spec.ts --project firefox --reporter=list",
     "test:ui": "cross-env ENV=prd npx playwright test tests/tests.spec.ts --project firefox --reporter=list --ui",
     "test:head": "cross-env ENV=prd npx playwright test tests/tests.spec.ts --project firefox --headed"
   },
