@@ -1,5 +1,5 @@
 import { expect } from '@playwright/test';
-import * as Consts from './constants';
+import * as Consts from './Constants';
 import { HomePage } from './pages/HomePage';
 import { beforeEach } from 'node:test';
 import { BASE_URL } from './setup';

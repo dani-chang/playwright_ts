@@ -1,7 +1,7 @@
 import { expect, Locator, Page } from "@playwright/test";
 import * as homePage from './HomePage';
 import { BASE_URL } from "../setup";
-import * as Consts from '.././constants';
+import * as Consts from '.././Constants';
 
 
 export class NavbarPage{
