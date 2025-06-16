@@ -10,16 +10,16 @@ console.log(`********** Request_env es: ${requested_env}`);
 let BASE_URL: string | undefined;
 
 if(requested_env === 'dev'){
-    console.log(`********** Entro en dev`);
+    console.log(`********** 1. Entro en dev`);
     BASE_URL = process.env.ENV_DEV;
 }
 else if(requested_env === 'qa'){
-    console.log(`********** Entro en qa`);
+    console.log(`********** 2. Entro en qa`);
     BASE_URL = process.env.ENV_QA;
 
 }
 else if(requested_env === 'prd'){
-    console.log(`********** Entro en prd`);
+    console.log(`********** 3. Entro en prd`);
     BASE_URL = process.env.ENV_PRD;
 
 }
