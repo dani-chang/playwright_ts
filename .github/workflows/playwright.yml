@@ -13,7 +13,7 @@ jobs:
     runs-on: ubuntu-latest
     env:
       FORCE_COLOR: "1"
-      ENV: ${{ inputs.target_env }}
+      REQUESTED_ENV: ${{ inputs.target_env }}
       ENV_DEV: ${{ secrets.ENV_DEV }}
       ENV_QA: ${{ secrets.ENV_QA }}
       ENV_PRD: ${{ secrets.ENV_PRD }}
