@@ -8,6 +8,8 @@ My main issue was the way i had set up envs (I had them just for local runs). Fi
 No idea if this is the "correct" approach, but it will work for now. <br>
 Added `FORCE_COLOR` for logs of test results for more readability. <br>
 Added retention of html-report file when tests are run in the `Upload Playwright HTML report` step of the `yml` file. <br>
+Playing around in the `inputs` for the the `workflow-dispatch` in the `yml` file. <br>
+I'm currently using it to be able to run the tests in different environments without hardcoding it.
 
 ---
 ### May 25 2025 - Handling brouwser's dialog prompt
