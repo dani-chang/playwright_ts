@@ -2,7 +2,7 @@ name: Playwright Tests
 on:
   workflow_dispatch:
 jobs:
-  test:
+  running-tests:
     timeout-minutes: 60
     runs-on: ubuntu-latest
     env:
