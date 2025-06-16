@@ -8,6 +8,7 @@ import * as data from './data/testdata';
 import { UserAccountPage } from './pages/UserAccountPage';
 
 
+console.log('test log.');
 
 test.beforeEach(async ({homePage}) => {
 
